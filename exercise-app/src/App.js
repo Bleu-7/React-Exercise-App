@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RepetitionExercise from "./components/RepetitionExercise";
 import DurationExercise from "./components/DurationExercise";
+import RunningExercise from "./components/RunningExercise";
 import "./App.css"
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     { name: "Push Ups", type: "repetition" },
     { name: "Running", type: "duration" },
     { name: "Plank", type: "duration" },
+    { name: "Record Laps", type: "running"}
   ];
 
   const handleExerciseClick = (exercise) => {
@@ -35,8 +37,10 @@ function App() {
         </div>
       ) : currentScreen === "repetition" ? (
         <RepetitionExercise name={exerciseName} />
-      ) : (
+      ) : currentScreen === "duration" ? (
         <DurationExercise name={exerciseName} />
+      ) : (
+        <RunningExercise name={exerciseName}/>
       )}
     </div>
   );
